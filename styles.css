@@ -1,5 +1,5 @@
 /* Barmaja — estilos base
-   Tipografías Inter (texto) y Sora (títulos), auto-alojadas en /fonts —
+   Tipografías Inter (texto) y Poppins (títulos), auto-alojadas en /fonts —
    sin peticiones a servicios externos en tiempo de ejecución. */
 
 @font-face {
@@ -11,11 +11,19 @@
 }
 
 @font-face {
-  font-family: "Sora";
+  font-family: "Poppins";
   font-style: normal;
-  font-weight: 600 700;
+  font-weight: 600;
   font-display: swap;
-  src: url("fonts/Sora-Variable.woff2") format("woff2");
+  src: url("fonts/Poppins-SemiBold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/Poppins-Bold.woff2") format("woff2");
 }
 
 :root {
@@ -35,7 +43,7 @@
   --max-width: 1100px;
   --font: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
     "Helvetica Neue", Arial, sans-serif;
-  --font-heading: "Sora", var(--font);
+  --font-heading: "Poppins", var(--font);
 }
 
 @media (prefers-color-scheme: dark) {

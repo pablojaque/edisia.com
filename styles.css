@@ -92,6 +92,7 @@ html {
 
 body {
   margin: 0;
+  overflow-x: hidden;
   font-family: var(--font);
   background: var(--bg);
   color: var(--text);
@@ -372,10 +373,38 @@ textarea:focus-visible,
 
 /* Hero */
 .hero {
+  position: relative;
+  z-index: 0;
   text-align: center;
   padding: 96px 24px 72px;
   max-width: 860px;
   margin: 0 auto;
+}
+
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  filter: blur(70px);
+  pointer-events: none;
+}
+
+.hero::before {
+  top: -60px;
+  left: -240px;
+  width: 480px;
+  height: 480px;
+  background: var(--glow-a);
+}
+
+.hero::after {
+  top: 120px;
+  left: -100px;
+  width: 380px;
+  height: 380px;
+  background: var(--glow-b);
 }
 
 .hero h1 {
@@ -450,7 +479,7 @@ textarea:focus-visible,
 }
 
 .hero-prompt-hint {
-  margin: 44px auto 0;
+  margin: 68px auto 0;
   font-size: 0.82rem;
   color: var(--text-secondary);
   white-space: nowrap;

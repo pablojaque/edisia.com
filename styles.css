@@ -312,7 +312,7 @@ textarea:focus-visible,
 .hero {
   text-align: center;
   padding: 96px 24px 72px;
-  max-width: 780px;
+  max-width: 860px;
   margin: 0 auto;
 }
 
@@ -388,9 +388,16 @@ textarea:focus-visible,
 }
 
 .hero-prompt-hint {
-  margin: 14px 0 0;
-  font-size: 0.85rem;
+  margin: 28px auto 0;
+  font-size: 0.82rem;
   color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .hero-prompt-hint {
+    white-space: normal;
+  }
 }
 
 /* Sections */
@@ -750,6 +757,86 @@ body.modal-open {
   align-items: center;
   justify-content: center;
   margin-bottom: 16px;
+}
+
+/* Process timeline (how-we-work page) */
+.process {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.process-step {
+  position: relative;
+  display: flex;
+  gap: 24px;
+  padding-bottom: 48px;
+}
+
+.process-step:last-child {
+  padding-bottom: 0;
+}
+
+.process-step::after {
+  content: "";
+  position: absolute;
+  left: 27px;
+  top: 64px;
+  bottom: 4px;
+  width: 2px;
+  background: var(--border);
+}
+
+.process-step:last-child::after {
+  content: none;
+}
+
+.process-step-number {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.3rem;
+  z-index: 1;
+}
+
+.process-step-content {
+  padding-top: 10px;
+}
+
+.process-step-content h3 {
+  margin: 0 0 8px;
+  font-size: 1.2rem;
+}
+
+.process-step-content p {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+/* CTA band */
+.cta-band {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+  background: var(--accent-soft);
+  border-radius: var(--radius);
+  padding: 56px 32px;
+}
+
+.cta-band h2 {
+  margin: 0 0 12px;
+}
+
+.cta-band p {
+  margin: 0 0 28px;
+  color: var(--text-secondary);
 }
 
 /* Legal pages */

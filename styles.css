@@ -479,7 +479,7 @@ textarea:focus-visible,
 }
 
 .hero-prompt-hint {
-  margin: 68px auto 0;
+  margin: 96px auto 0;
   font-size: 0.82rem;
   color: var(--text-secondary);
   white-space: nowrap;

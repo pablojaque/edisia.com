@@ -166,43 +166,78 @@
     });
   }
 
+  function submitToFormspree(form, onSuccess, onError) {
+    fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+      headers: { Accept: "application/json" },
+    })
+      .then(function (response) {
+        if (response.ok) {
+          onSuccess();
+        } else {
+          onError();
+        }
+      })
+      .catch(function () {
+        onError();
+      });
+  }
+
+  function setSubmitBusy(form, busy) {
+    var submitBtn = form.querySelector('button[type="submit"]');
+    if (!submitBtn) {
+      return null;
+    }
+    if (busy) {
+      submitBtn.dataset.originalText = submitBtn.textContent;
+      submitBtn.textContent = form.getAttribute("data-sending-label") || "Sending…";
+      submitBtn.disabled = true;
+    } else {
+      submitBtn.textContent = submitBtn.dataset.originalText || submitBtn.textContent;
+      submitBtn.disabled = false;
+    }
+    return submitBtn;
+  }
+
+  var modalError = document.getElementById("modal-error");
+
   if (modalForm) {
     modalForm.addEventListener("submit", function (event) {
       event.preventDefault();
-      var name = modalNameInput ? modalNameInput.value.trim() : "";
-      var email = modalEmailInput ? modalEmailInput.value.trim() : "";
-      var message = modalMessageInput ? modalMessageInput.value.trim() : "";
-      var mailto = modalForm.getAttribute("data-mailto") || "pablojaquevfx@gmail.com";
-      var subjectPrefix = modalForm.getAttribute("data-subject-prefix") || "New message from";
-      var labelName = modalForm.getAttribute("data-label-name") || "Name";
-      var labelEmail = modalForm.getAttribute("data-label-email") || "Email";
-      var labelMessage = modalForm.getAttribute("data-label-message") || "Message";
-
-      var subject = subjectPrefix + " " + name;
-      var body =
-        labelName + ": " + name + "\n" +
-        labelEmail + ": " + email + "\n\n" +
-        labelMessage + ":\n" + message;
-
-      var link =
-        "mailto:" +
-        mailto +
-        "?subject=" +
-        encodeURIComponent(subject) +
-        "&body=" +
-        encodeURIComponent(body);
-
-      window.location.href = link;
-
-      if (modalFormView) {
-        modalFormView.hidden = true;
+      if (!modalForm.checkValidity()) {
+        modalForm.reportValidity();
+        return;
       }
-      if (modalSuccessView) {
-        modalSuccessView.hidden = false;
+      if (modalError) {
+        modalError.hidden = true;
       }
-      if (modalDoneBtn) {
-        modalDoneBtn.focus();
-      }
+      setSubmitBusy(modalForm, true);
+
+      submitToFormspree(
+        modalForm,
+        function () {
+          setSubmitBusy(modalForm, false);
+          if (modalFormView) {
+            modalFormView.hidden = true;
+          }
+          if (modalSuccessView) {
+            modalSuccessView.hidden = false;
+          }
+          if (modalDoneBtn) {
+            modalDoneBtn.focus();
+          }
+        },
+        function () {
+          setSubmitBusy(modalForm, false);
+          if (modalError) {
+            modalError.textContent =
+              modalForm.getAttribute("data-error-message") ||
+              "Something went wrong sending your message. Please try again.";
+            modalError.hidden = false;
+          }
+        }
+      );
     });
   }
 
@@ -211,15 +246,42 @@
 
   if (form && status) {
     form.addEventListener("submit", function (event) {
+      event.preventDefault();
       var consent = document.getElementById("consent");
       if (consent && !consent.checked) {
-        event.preventDefault();
         status.textContent =
           form.getAttribute("data-consent-message") ||
           "Antes de enviar el formulario, marca la casilla de consentimiento para tratar tus datos.";
         status.setAttribute("role", "alert");
         consent.focus();
+        return;
       }
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+      status.removeAttribute("role");
+      status.textContent = "";
+      setSubmitBusy(form, true);
+
+      submitToFormspree(
+        form,
+        function () {
+          setSubmitBusy(form, false);
+          status.removeAttribute("role");
+          status.textContent =
+            form.getAttribute("data-success-message") ||
+            "Thanks! We'll get back to you soon.";
+          form.reset();
+        },
+        function () {
+          setSubmitBusy(form, false);
+          status.setAttribute("role", "alert");
+          status.textContent =
+            form.getAttribute("data-error-message") ||
+            "Something went wrong sending your message. Please try again.";
+        }
+      );
     });
   }
 })();

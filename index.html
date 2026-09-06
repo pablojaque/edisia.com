@@ -132,7 +132,17 @@
           <h2>Explícanos tu problema</h2>
           <p>Contanos qué necesita tu negocio y te respondemos con una propuesta concreta.</p>
         </div>
-        <form class="contact-form" id="contact-form" action="mailto:pablojaquevfx@gmail.com" method="post" enctype="text/plain" data-consent-message="Antes de enviar el formulario, marca la casilla de consentimiento para tratar tus datos.">
+        <form
+          class="contact-form"
+          id="contact-form"
+          action="https://formspree.io/f/xppzjnoq"
+          method="POST"
+          data-consent-message="Antes de enviar el formulario, marca la casilla de consentimiento para tratar tus datos."
+          data-sending-label="Enviando…"
+          data-success-message="¡Gracias! Te vamos a responder pronto a tu correo."
+          data-error-message="Hubo un problema al enviar el mensaje. Probá de nuevo o escribinos a pablojaquevfx@gmail.com."
+        >
+          <input type="hidden" name="_subject" value="Nuevo mensaje de contacto — Barmaja" />
           <div class="form-field">
             <label for="name">Nombre</label>
             <input type="text" id="name" name="nombre" autocomplete="name" required />
@@ -222,12 +232,12 @@
         <form
           class="modal-form"
           id="modal-form"
-          data-mailto="pablojaquevfx@gmail.com"
-          data-subject-prefix="Nuevo mensaje de"
-          data-label-name="Nombre"
-          data-label-email="Email"
-          data-label-message="Mensaje"
+          action="https://formspree.io/f/xppzjnoq"
+          method="POST"
+          data-sending-label="Enviando…"
+          data-error-message="Hubo un problema al enviar el mensaje. Probá de nuevo o escribinos a pablojaquevfx@gmail.com."
         >
+          <input type="hidden" name="_subject" value="Nuevo mensaje rápido — Barmaja" />
           <div class="form-field">
             <label for="modal-name">Nombre</label>
             <input type="text" id="modal-name" name="nombre" autocomplete="name" required />
@@ -240,10 +250,8 @@
             <label for="modal-message">Tu problema</label>
             <textarea id="modal-message" name="mensaje" rows="4" required></textarea>
           </div>
-          <p class="form-note">
-            Al enviar, se abrirá tu programa de correo con el mensaje
-            listo para pablojaquevfx@gmail.com.
-          </p>
+          <p id="modal-error" class="form-note" role="alert" hidden></p>
+          <p class="form-note">Tu mensaje llega directo a nuestro correo.</p>
           <button type="submit" class="button">Enviar mensaje</button>
         </form>
       </div>
@@ -254,11 +262,9 @@
             <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
         </div>
-        <h2>¡Listo!</h2>
+        <h2>¡Mensaje enviado!</h2>
         <p class="modal-subtitle">
-          Se abrió tu programa de correo con el mensaje preparado. Si no
-          se abrió automáticamente, escribinos directamente a
-          <a href="mailto:pablojaquevfx@gmail.com">pablojaquevfx@gmail.com</a>.
+          Recibimos tu mensaje y te vamos a responder pronto a tu correo.
         </p>
         <button type="button" id="modal-done" class="button">Cerrar</button>
       </div>

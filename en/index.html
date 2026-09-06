@@ -132,7 +132,17 @@
           <h2>Tell us your problem</h2>
           <p>Tell us what your business needs and we'll get back to you with a concrete proposal.</p>
         </div>
-        <form class="contact-form" id="contact-form" action="mailto:pablojaquevfx@gmail.com" method="post" enctype="text/plain" data-consent-message="Before sending the form, please check the consent box to process your data.">
+        <form
+          class="contact-form"
+          id="contact-form"
+          action="https://formspree.io/f/xppzjnoq"
+          method="POST"
+          data-consent-message="Before sending the form, please check the consent box to process your data."
+          data-sending-label="Sending…"
+          data-success-message="Thanks! We'll get back to you soon by email."
+          data-error-message="Something went wrong sending your message. Please try again or email us at pablojaquevfx@gmail.com."
+        >
+          <input type="hidden" name="_subject" value="New contact message — Barmaja" />
           <div class="form-field">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" autocomplete="name" required />
@@ -221,12 +231,12 @@
         <form
           class="modal-form"
           id="modal-form"
-          data-mailto="pablojaquevfx@gmail.com"
-          data-subject-prefix="New message from"
-          data-label-name="Name"
-          data-label-email="Email"
-          data-label-message="Message"
+          action="https://formspree.io/f/xppzjnoq"
+          method="POST"
+          data-sending-label="Sending…"
+          data-error-message="Something went wrong sending your message. Please try again or email us at pablojaquevfx@gmail.com."
         >
+          <input type="hidden" name="_subject" value="New quick message — Barmaja" />
           <div class="form-field">
             <label for="modal-name">Name</label>
             <input type="text" id="modal-name" name="name" autocomplete="name" required />
@@ -239,10 +249,8 @@
             <label for="modal-message">Your problem</label>
             <textarea id="modal-message" name="message" rows="4" required></textarea>
           </div>
-          <p class="form-note">
-            When you submit, your email app will open with the message
-            ready to send to pablojaquevfx@gmail.com.
-          </p>
+          <p id="modal-error" class="form-note" role="alert" hidden></p>
+          <p class="form-note">Your message goes straight to our inbox.</p>
           <button type="submit" class="button">Send message</button>
         </form>
       </div>
@@ -253,11 +261,9 @@
             <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
         </div>
-        <h2>All set!</h2>
+        <h2>Message sent!</h2>
         <p class="modal-subtitle">
-          Your email app opened with the message ready to go. If it
-          didn't open automatically, write to us directly at
-          <a href="mailto:pablojaquevfx@gmail.com">pablojaquevfx@gmail.com</a>.
+          We got your message and will reply to your email soon.
         </p>
         <button type="button" id="modal-done" class="button">Close</button>
       </div>

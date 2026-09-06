@@ -9,10 +9,10 @@ programación.
 ## Estructura
 
 - `index.html` — página principal (español)
-- `privacidad.html`, `terminos.html`, `reembolsos.html`, `cookies.html` — páginas legales (español)
+- `privacidad.html`, `terminos.html`, `reembolsos.html` — páginas legales (español)
 - `en/` — versión completa en inglés de todas las páginas anteriores
-- `styles.css` — estilos (fuentes Inter/Sora auto-alojadas en `/fonts`, sin dependencias externas)
-- `script.js` — aviso de cookies, toggle de tema claro/oscuro y validación de consentimiento del formulario
+- `styles.css` — estilos (fuentes Inter/Poppins auto-alojadas en `/fonts`, sin dependencias externas)
+- `script.js` — toggle de tema claro/oscuro, animaciones al hacer scroll y validación del formulario de contacto
 
 ## Antes de publicar
 

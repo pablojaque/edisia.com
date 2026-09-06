@@ -1,5 +1,4 @@
-// Barmaja — sin scripts de terceros ni rastreo. Solo gestiona el aviso de cookies
-// y valida el consentimiento del formulario de contacto en el propio navegador.
+// Barmaja — sin scripts de terceros ni rastreo.
 
 (function () {
   var revealTargets = document.querySelectorAll(
@@ -88,45 +87,6 @@
       }
       reflectTheme();
     });
-  }
-
-  var STORAGE_KEY = "barmaja_cookie_choice";
-  var banner = document.getElementById("cookie-banner");
-
-  if (banner) {
-    var alreadyChosen = null;
-    try {
-      alreadyChosen = window.localStorage.getItem(STORAGE_KEY);
-    } catch (err) {
-      alreadyChosen = null;
-    }
-
-    if (!alreadyChosen) {
-      banner.hidden = false;
-    }
-
-    var acceptBtn = document.getElementById("cookie-accept");
-    var rejectBtn = document.getElementById("cookie-reject");
-
-    function chooseCookies(value) {
-      try {
-        window.localStorage.setItem(STORAGE_KEY, value);
-      } catch (err) {
-        /* Si el navegador bloquea almacenamiento local, seguimos sin rastreo igualmente. */
-      }
-      banner.hidden = true;
-    }
-
-    if (acceptBtn) {
-      acceptBtn.addEventListener("click", function () {
-        chooseCookies("accepted");
-      });
-    }
-    if (rejectBtn) {
-      rejectBtn.addEventListener("click", function () {
-        chooseCookies("rejected");
-      });
-    }
   }
 
   var heroPrompt = document.getElementById("hero-prompt");

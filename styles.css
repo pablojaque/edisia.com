@@ -378,7 +378,7 @@ textarea:focus-visible,
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 90vh;
+  min-height: 65vh;
   box-sizing: border-box;
   text-align: center;
   padding: 96px 24px 72px;

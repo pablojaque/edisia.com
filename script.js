@@ -41,6 +41,31 @@
     }
   }
 
+  var heroPrompt = document.getElementById("hero-prompt");
+
+  if (heroPrompt) {
+    heroPrompt.addEventListener("submit", function (event) {
+      event.preventDefault();
+      var heroInput = document.getElementById("hero-input");
+      var message = document.getElementById("message");
+      var contact = document.getElementById("contacto");
+      var text = heroInput ? heroInput.value.trim() : "";
+
+      if (text && message) {
+        message.value = text;
+      }
+      if (contact) {
+        contact.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+      window.setTimeout(function () {
+        var name = document.getElementById("name");
+        if (name) {
+          name.focus();
+        }
+      }, 500);
+    });
+  }
+
   var form = document.getElementById("contact-form");
   var status = document.getElementById("form-status");
 

@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Términos y Condiciones — Barmaja</title>
   <meta name="description" content="Términos y condiciones de uso de los servicios y del sitio web de Barmaja." />
+  <script>
+    (function () {
+      try {
+        var t = window.localStorage.getItem("barmaja_theme");
+        if (t) document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%234f46e5'/%3E%3Ctext x='32' y='45' font-family='Arial, sans-serif' font-size='34' font-weight='700' fill='white' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E" />
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -19,13 +27,30 @@
         </svg>
         Barmaja
       </a>
-      <nav class="main-nav" aria-label="Principal">
-        <ul>
-          <li><a href="index.html#servicios">Servicios</a></li>
-          <li><a href="index.html#sobre-nosotros">Sobre nosotros</a></li>
-          <li><a href="index.html#contacto">Contacto</a></li>
-        </ul>
-      </nav>
+      <div class="nav-actions">
+        <nav class="main-nav" aria-label="Principal">
+          <ul>
+            <li><a href="index.html#servicios">Servicios</a></li>
+            <li><a href="index.html#sobre-nosotros">Sobre nosotros</a></li>
+            <li><a href="index.html#contacto">Contacto</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <div class="lang-switch" aria-label="Seleccionar idioma">
+            <a href="terminos.html" aria-current="true" lang="es" hreflang="es">ES</a>
+            <a href="en/terms.html" lang="en" hreflang="en">EN</a>
+          </div>
+          <button type="button" id="theme-toggle" class="icon-button" aria-pressed="false" aria-label="Cambiar entre modo claro y oscuro">
+            <svg id="icon-sun" hidden viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+            </svg>
+            <svg id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" />
+            </svg>
+          </button>
+        </div>
+      </div>
     </div>
   </header>
 

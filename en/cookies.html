@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cookie Policy — Barmaja</title>
+  <meta name="description" content="What cookies Barmaja uses and how to manage them." />
+  <script>
+    (function () {
+      try {
+        var t = window.localStorage.getItem("barmaja_theme");
+        if (t) document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%234f46e5'/%3E%3Ctext x='32' y='45' font-family='Arial, sans-serif' font-size='34' font-weight='700' fill='white' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header-bar">
+    <div class="site-header">
+      <a class="logo" href="index.html" aria-label="Barmaja — homepage">
+        <svg width="32" height="32" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+          <rect width="64" height="64" rx="14" fill="#4f46e5" />
+          <text x="32" y="45" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#ffffff" text-anchor="middle">B</text>
+        </svg>
+        Barmaja
+      </a>
+      <div class="nav-actions">
+        <nav class="main-nav" aria-label="Primary">
+          <ul>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#about">About us</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <div class="lang-switch" aria-label="Select language">
+            <a href="../cookies.html" lang="es" hreflang="es">ES</a>
+            <a href="cookies.html" aria-current="true" lang="en" hreflang="en">EN</a>
+          </div>
+          <button type="button" id="theme-toggle" class="icon-button" aria-pressed="false" aria-label="Switch between light and dark mode">
+            <svg id="icon-sun" hidden viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+            </svg>
+            <svg id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="legal-content">
+      <h1>Cookie Policy</h1>
+      <p class="updated">Last updated: <span class="placeholder">[date]</span></p>
+
+      <h2>1. What cookies are</h2>
+      <p>
+        Cookies are small files a website stores in your browser to
+        remember information, such as your preferences.
+      </p>
+
+      <h2>2. What cookies we use</h2>
+      <p>
+        This site only uses browser local storage to remember your
+        choice about this same cookie notice (accept or reject). We
+        don't use analytics, advertising, or tracking cookies of any
+        kind, and there are no third-party scripts installed on the
+        site.
+      </p>
+
+      <h2>3. How to manage cookies</h2>
+      <p>
+        You can choose "Accept" or "Reject" in the notice that appears
+        when you enter the site. You can also clear the data stored by
+        the site at any time from your browser settings.
+      </p>
+
+      <h2>4. Changes to this policy</h2>
+      <p>
+        If we add any additional cookie in the future (for example, for
+        analytics), we will update this page and ask for your consent
+        before activating it.
+      </p>
+
+      <h2>5. Contact</h2>
+      <p>
+        Questions about this policy: write to
+        <span class="placeholder">contacto@barmaja.com</span>.
+      </p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-bottom">
+      <p>© 2026 Barmaja.</p>
+      <p><a href="index.html">Back to home</a></p>
+    </div>
+  </footer>
+
+  <div id="cookie-banner" class="cookie-banner" role="dialog" aria-label="Cookie notice" hidden>
+    <p>
+      We only use essential cookies to make the site work. We don't use
+      tracking or advertising cookies without your consent. More
+      information on this same page.
+    </p>
+    <div class="cookie-banner-actions">
+      <button type="button" id="cookie-reject" class="button secondary">Reject</button>
+      <button type="button" id="cookie-accept" class="button">Accept</button>
+    </div>
+  </div>
+
+  <script src="../script.js" defer></script>
+</body>
+</html>

@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Barmaja — Automatización de negocios y desarrollo web</title>
   <meta name="description" content="Barmaja ayuda a negocios a automatizar procesos y a crear páginas web, con un equipo cercano y honesto." />
+  <script>
+    (function () {
+      try {
+        var t = window.localStorage.getItem("barmaja_theme");
+        if (t) document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%234f46e5'/%3E%3Ctext x='32' y='45' font-family='Arial, sans-serif' font-size='34' font-weight='700' fill='white' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E" />
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -20,13 +28,30 @@
         </svg>
         Barmaja
       </a>
-      <nav class="main-nav" aria-label="Principal">
-        <ul>
-          <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#sobre-nosotros">Sobre nosotros</a></li>
-          <li><a href="#contacto">Contacto</a></li>
-        </ul>
-      </nav>
+      <div class="nav-actions">
+        <nav class="main-nav" aria-label="Principal">
+          <ul>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#sobre-nosotros">Sobre nosotros</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <div class="lang-switch" aria-label="Seleccionar idioma">
+            <a href="index.html" aria-current="true" lang="es" hreflang="es">ES</a>
+            <a href="en/index.html" lang="en" hreflang="en">EN</a>
+          </div>
+          <button type="button" id="theme-toggle" class="icon-button" aria-pressed="false" aria-label="Cambiar entre modo claro y oscuro">
+            <svg id="icon-sun" hidden viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+            </svg>
+            <svg id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" />
+            </svg>
+          </button>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -65,22 +90,22 @@
         <div class="services-grid">
           <article class="service-card">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
-              <path d="M12 3v3M12 18v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M3 12h3M18 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1" stroke="#0055cc" stroke-width="1.8" stroke-linecap="round"/>
-              <circle cx="12" cy="12" r="4.2" stroke="#0055cc" stroke-width="1.8"/>
+              <path d="M12 3v3M12 18v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M3 12h3M18 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1" stroke="#4f46e5" stroke-width="1.8" stroke-linecap="round"/>
+              <circle cx="12" cy="12" r="4.2" stroke="#4f46e5" stroke-width="1.8"/>
             </svg>
             <h3>Automatización de negocios</h3>
             <p>Ordenamos tareas repetitivas (facturación, seguimiento de clientes, reportes) para que tu equipo gane tiempo.</p>
           </article>
           <article class="service-card">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
-              <path d="M8 6L2.5 12L8 18M16 6L21.5 12L16 18" stroke="#0055cc" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8 6L2.5 12L8 18M16 6L21.5 12L16 18" stroke="#4f46e5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
             <h3>Desarrollo web</h3>
             <p>Diseñamos y programamos sitios y aplicaciones web rápidas, accesibles y pensadas para tus clientes reales.</p>
           </article>
           <article class="service-card">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
-              <path d="M4 5h16v10H8l-4 4V5z" stroke="#0055cc" stroke-width="1.8" stroke-linejoin="round"/>
+              <path d="M4 5h16v10H8l-4 4V5z" stroke="#4f46e5" stroke-width="1.8" stroke-linejoin="round"/>
             </svg>
             <h3>Consultoría digital</h3>
             <p>Analizamos tu negocio y te decimos, con honestidad, qué conviene automatizar y qué no todavía.</p>
@@ -107,7 +132,7 @@
           <h2>Explícanos tu problema</h2>
           <p>Contanos qué necesita tu negocio y te respondemos con una propuesta concreta.</p>
         </div>
-        <form class="contact-form" id="contact-form" action="mailto:contacto@barmaja.com" method="post" enctype="text/plain">
+        <form class="contact-form" id="contact-form" action="mailto:contacto@barmaja.com" method="post" enctype="text/plain" data-consent-message="Antes de enviar el formulario, marca la casilla de consentimiento para tratar tus datos.">
           <div class="form-field">
             <label for="name">Nombre</label>
             <input type="text" id="name" name="nombre" autocomplete="name" required />

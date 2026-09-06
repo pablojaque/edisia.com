@@ -2,6 +2,48 @@
 // y valida el consentimiento del formulario de contacto en el propio navegador.
 
 (function () {
+  var THEME_KEY = "barmaja_theme";
+  var themeToggle = document.getElementById("theme-toggle");
+  var sunIcon = document.getElementById("icon-sun");
+  var moonIcon = document.getElementById("icon-moon");
+
+  function currentTheme() {
+    var explicit = document.documentElement.getAttribute("data-theme");
+    if (explicit) {
+      return explicit;
+    }
+    var prefersDark =
+      window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+    return prefersDark ? "dark" : "light";
+  }
+
+  function reflectTheme() {
+    var isDark = currentTheme() === "dark";
+    if (sunIcon) {
+      sunIcon.hidden = !isDark;
+    }
+    if (moonIcon) {
+      moonIcon.hidden = isDark;
+    }
+    if (themeToggle) {
+      themeToggle.setAttribute("aria-pressed", isDark ? "true" : "false");
+    }
+  }
+
+  if (themeToggle) {
+    reflectTheme();
+    themeToggle.addEventListener("click", function () {
+      var next = currentTheme() === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", next);
+      try {
+        window.localStorage.setItem(THEME_KEY, next);
+      } catch (err) {
+        /* Sin almacenamiento local, el tema simplemente no persiste entre visitas. */
+      }
+      reflectTheme();
+    });
+  }
+
   var STORAGE_KEY = "barmaja_cookie_choice";
   var banner = document.getElementById("cookie-banner");
 
@@ -75,6 +117,7 @@
       if (consent && !consent.checked) {
         event.preventDefault();
         status.textContent =
+          form.getAttribute("data-consent-message") ||
           "Antes de enviar el formulario, marca la casilla de consentimiento para tratar tus datos.";
         status.setAttribute("role", "alert");
         consent.focus();

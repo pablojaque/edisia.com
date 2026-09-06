@@ -108,9 +108,11 @@
 
       <h2>7. Links and third-party services</h2>
       <p>
-        This site does not include third-party embedded content. If any
-        is added in the future, its impact on privacy and accessibility
-        will be reviewed beforehand and disclosed on this page.
+        This site uses Vercel Analytics to measure visits in aggregate
+        and anonymized form, without cookies. It does not include any
+        other third-party embedded content; if any is added in the
+        future, its impact on privacy and accessibility will be
+        reviewed beforehand and disclosed on this page.
       </p>
 
       <h2>8. Changes</h2>
@@ -139,5 +141,9 @@
     </div>
   </footer>
   <script src="../script.js" defer></script>
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>

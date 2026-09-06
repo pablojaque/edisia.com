@@ -1,4 +1,5 @@
-// Barmaja — sin scripts de terceros ni rastreo.
+// Barmaja — sin rastreo con cookies. Vercel Analytics (cargado en cada
+// página) mide visitas de forma agregada y anónima.
 
 (function () {
   var revealTargets = document.querySelectorAll(

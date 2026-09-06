@@ -494,11 +494,6 @@ textarea:focus-visible,
 /* Sections */
 section {
   padding: 64px 24px;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  box-sizing: border-box;
 }
 
 section.alt {

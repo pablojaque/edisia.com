@@ -2,6 +2,52 @@
 // y valida el consentimiento del formulario de contacto en el propio navegador.
 
 (function () {
+  var revealTargets = document.querySelectorAll(
+    ".section-heading, .service-card, .process-step, .cta-band, .about"
+  );
+
+  if (revealTargets.length) {
+    var reduceMotion =
+      window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (reduceMotion || !("IntersectionObserver" in window)) {
+      Array.prototype.forEach.call(revealTargets, function (el) {
+        el.classList.add("reveal", "is-visible");
+      });
+    } else {
+      Array.prototype.forEach.call(revealTargets, function (el) {
+        el.classList.add("reveal");
+      });
+
+      [".services-grid", ".process"].forEach(function (groupSelector) {
+        document.querySelectorAll(groupSelector).forEach(function (group) {
+          Array.prototype.forEach.call(group.children, function (child, index) {
+            if (child.classList.contains("reveal")) {
+              child.style.setProperty("--reveal-delay", index * 100 + "ms");
+            }
+          });
+        });
+      });
+
+      var revealObserver = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15, rootMargin: "0px 0px -60px 0px" }
+      );
+
+      Array.prototype.forEach.call(revealTargets, function (el) {
+        revealObserver.observe(el);
+      });
+    }
+  }
+
   var THEME_KEY = "barmaja_theme";
   var themeToggle = document.getElementById("theme-toggle");
   var sunIcon = document.getElementById("icon-sun");

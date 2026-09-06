@@ -78,7 +78,7 @@
           </svg>
         </button>
       </form>
-      <p class="hero-prompt-hint">Escribí tu problema y presioná enter: completamos el resto abajo.</p>
+      <p class="hero-prompt-hint">Escribí tu problema y presioná enter: te pedimos tu nombre y email para responderte.</p>
     </section>
 
     <section id="servicios" class="alt">
@@ -205,6 +205,63 @@
     <div class="cookie-banner-actions">
       <button type="button" id="cookie-reject" class="button secondary">Rechazar</button>
       <button type="button" id="cookie-accept" class="button">Aceptar</button>
+    </div>
+  </div>
+
+  <div id="contact-modal" class="modal-overlay" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button type="button" id="modal-close" class="modal-close" aria-label="Cerrar">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+          <path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </button>
+
+      <div id="modal-form-view">
+        <h2 id="modal-title">Casi listo</h2>
+        <p class="modal-subtitle">Dejanos tu nombre y email para responderte a tu problema.</p>
+        <form
+          class="modal-form"
+          id="modal-form"
+          data-mailto="pablojaquevfx@gmail.com"
+          data-subject-prefix="Nuevo mensaje de"
+          data-label-name="Nombre"
+          data-label-email="Email"
+          data-label-message="Mensaje"
+        >
+          <div class="form-field">
+            <label for="modal-name">Nombre</label>
+            <input type="text" id="modal-name" name="nombre" autocomplete="name" required />
+          </div>
+          <div class="form-field">
+            <label for="modal-email">Correo electrónico</label>
+            <input type="email" id="modal-email" name="email" autocomplete="email" required />
+          </div>
+          <div class="form-field">
+            <label for="modal-message">Tu problema</label>
+            <textarea id="modal-message" name="mensaje" rows="4" required></textarea>
+          </div>
+          <p class="form-note">
+            Al enviar, se abrirá tu programa de correo con el mensaje
+            listo para pablojaquevfx@gmail.com.
+          </p>
+          <button type="submit" class="button">Enviar mensaje</button>
+        </form>
+      </div>
+
+      <div id="modal-success-view" hidden>
+        <div class="modal-success-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+            <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+        <h2>¡Listo!</h2>
+        <p class="modal-subtitle">
+          Se abrió tu programa de correo con el mensaje preparado. Si no
+          se abrió automáticamente, escribinos directamente a
+          <a href="mailto:pablojaquevfx@gmail.com">pablojaquevfx@gmail.com</a>.
+        </p>
+        <button type="button" id="modal-done" class="button">Cerrar</button>
+      </div>
     </div>
   </div>
 

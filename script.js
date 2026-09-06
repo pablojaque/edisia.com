@@ -84,27 +84,125 @@
   }
 
   var heroPrompt = document.getElementById("hero-prompt");
+  var modalOverlay = document.getElementById("contact-modal");
+  var modalForm = document.getElementById("modal-form");
+  var modalNameInput = document.getElementById("modal-name");
+  var modalEmailInput = document.getElementById("modal-email");
+  var modalMessageInput = document.getElementById("modal-message");
+  var modalCloseBtn = document.getElementById("modal-close");
+  var modalDoneBtn = document.getElementById("modal-done");
+  var modalFormView = document.getElementById("modal-form-view");
+  var modalSuccessView = document.getElementById("modal-success-view");
+  var modalLastFocused = null;
+
+  function openModal(prefillText) {
+    if (!modalOverlay) {
+      return;
+    }
+    modalLastFocused = document.activeElement;
+    if (modalMessageInput) {
+      modalMessageInput.value = prefillText || "";
+    }
+    if (modalFormView) {
+      modalFormView.hidden = false;
+    }
+    if (modalSuccessView) {
+      modalSuccessView.hidden = true;
+    }
+    modalOverlay.hidden = false;
+    document.body.classList.add("modal-open");
+    window.setTimeout(function () {
+      if (modalNameInput) {
+        modalNameInput.focus();
+      }
+    }, 10);
+  }
+
+  function closeModal() {
+    if (!modalOverlay) {
+      return;
+    }
+    modalOverlay.hidden = true;
+    document.body.classList.remove("modal-open");
+    if (modalForm) {
+      modalForm.reset();
+    }
+    if (modalFormView) {
+      modalFormView.hidden = false;
+    }
+    if (modalSuccessView) {
+      modalSuccessView.hidden = true;
+    }
+    if (modalLastFocused && typeof modalLastFocused.focus === "function") {
+      modalLastFocused.focus();
+    }
+  }
 
   if (heroPrompt) {
     heroPrompt.addEventListener("submit", function (event) {
       event.preventDefault();
       var heroInput = document.getElementById("hero-input");
-      var message = document.getElementById("message");
-      var contact = document.getElementById("contacto");
       var text = heroInput ? heroInput.value.trim() : "";
+      openModal(text);
+    });
+  }
 
-      if (text && message) {
-        message.value = text;
+  if (modalOverlay) {
+    if (modalCloseBtn) {
+      modalCloseBtn.addEventListener("click", closeModal);
+    }
+    if (modalDoneBtn) {
+      modalDoneBtn.addEventListener("click", closeModal);
+    }
+    modalOverlay.addEventListener("click", function (event) {
+      if (event.target === modalOverlay) {
+        closeModal();
       }
-      if (contact) {
-        contact.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && !modalOverlay.hidden) {
+        closeModal();
       }
-      window.setTimeout(function () {
-        var name = document.getElementById("name");
-        if (name) {
-          name.focus();
-        }
-      }, 500);
+    });
+  }
+
+  if (modalForm) {
+    modalForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+      var name = modalNameInput ? modalNameInput.value.trim() : "";
+      var email = modalEmailInput ? modalEmailInput.value.trim() : "";
+      var message = modalMessageInput ? modalMessageInput.value.trim() : "";
+      var mailto = modalForm.getAttribute("data-mailto") || "pablojaquevfx@gmail.com";
+      var subjectPrefix = modalForm.getAttribute("data-subject-prefix") || "New message from";
+      var labelName = modalForm.getAttribute("data-label-name") || "Name";
+      var labelEmail = modalForm.getAttribute("data-label-email") || "Email";
+      var labelMessage = modalForm.getAttribute("data-label-message") || "Message";
+
+      var subject = subjectPrefix + " " + name;
+      var body =
+        labelName + ": " + name + "\n" +
+        labelEmail + ": " + email + "\n\n" +
+        labelMessage + ":\n" + message;
+
+      var link =
+        "mailto:" +
+        mailto +
+        "?subject=" +
+        encodeURIComponent(subject) +
+        "&body=" +
+        encodeURIComponent(body);
+
+      window.location.href = link;
+
+      if (modalFormView) {
+        modalFormView.hidden = true;
+      }
+      if (modalSuccessView) {
+        modalSuccessView.hidden = false;
+      }
+      if (modalDoneBtn) {
+        modalDoneBtn.focus();
+      }
     });
   }
 

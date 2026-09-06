@@ -427,7 +427,7 @@ textarea:focus-visible,
   display: flex;
   align-items: center;
   gap: 6px;
-  max-width: 520px;
+  max-width: 640px;
   margin: 0 auto;
   background: var(--surface);
   border: 1px solid var(--border);
@@ -485,7 +485,7 @@ textarea:focus-visible,
 
 .hero-prompt-hint {
   margin: 180px auto 0;
-  font-size: 0.82rem;
+  font-size: 0.72rem;
   color: var(--text-secondary);
   white-space: nowrap;
 }

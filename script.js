@@ -3,7 +3,7 @@
 
 (function () {
   var revealTargets = document.querySelectorAll(
-    ".section-heading, .service-card, .process-step, .cta-band, .about"
+    ".section-heading, .service-card, .cta-band, .about"
   );
 
   if (revealTargets.length) {
@@ -20,7 +20,7 @@
         el.classList.add("reveal");
       });
 
-      [".services-grid", ".process"].forEach(function (groupSelector) {
+      [".services-grid"].forEach(function (groupSelector) {
         document.querySelectorAll(groupSelector).forEach(function (group) {
           Array.prototype.forEach.call(group.children, function (child, index) {
             if (child.classList.contains("reveal")) {

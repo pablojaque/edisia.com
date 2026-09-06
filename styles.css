@@ -39,6 +39,8 @@
   --border: #e4e4e7;
   --focus: #4f46e5;
   --danger: #b3261e;
+  --glow-a: rgba(79, 70, 229, 0.10);
+  --glow-b: rgba(236, 72, 153, 0.08);
   --radius: 16px;
   --max-width: 1100px;
   --font: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
@@ -59,6 +61,8 @@
     --accent-contrast: #0b0b10;
     --border: #27272a;
     --focus: #818cf8;
+    --glow-a: rgba(129, 140, 248, 0.28);
+    --glow-b: rgba(244, 114, 182, 0.22);
   }
 }
 
@@ -74,6 +78,8 @@
   --accent-contrast: #0b0b10;
   --border: #27272a;
   --focus: #818cf8;
+  --glow-a: rgba(129, 140, 248, 0.28);
+  --glow-b: rgba(244, 114, 182, 0.22);
 }
 
 * {
@@ -159,6 +165,7 @@ textarea:focus-visible,
   position: sticky;
   top: 0;
   z-index: 50;
+  overflow: hidden;
   background: var(--bg);
   background: color-mix(in srgb, var(--bg) 82%, transparent);
   backdrop-filter: blur(20px);
@@ -166,7 +173,35 @@ textarea:focus-visible,
   border-bottom: 1px solid var(--border);
 }
 
+.site-header-bar::before,
+.site-header-bar::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+  filter: blur(36px);
+  pointer-events: none;
+}
+
+.site-header-bar::before {
+  top: -70px;
+  left: 20px;
+  width: 190px;
+  height: 190px;
+  background: var(--glow-a);
+}
+
+.site-header-bar::after {
+  top: -50px;
+  left: 130px;
+  width: 150px;
+  height: 150px;
+  background: var(--glow-b);
+}
+
 .site-header {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -186,6 +221,33 @@ textarea:focus-visible,
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 1.25rem;
+}
+
+.logo-mark {
+  height: 30px;
+  width: auto;
+  display: block;
+}
+
+.logo-mark-dark {
+  display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .logo-mark-light {
+    display: none;
+  }
+  :root:not([data-theme="light"]) .logo-mark-dark {
+    display: block;
+  }
+}
+
+:root[data-theme="dark"] .logo-mark-light {
+  display: none;
+}
+
+:root[data-theme="dark"] .logo-mark-dark {
+  display: block;
 }
 
 .logo svg {

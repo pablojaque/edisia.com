@@ -375,6 +375,11 @@ textarea:focus-visible,
 .hero {
   position: relative;
   z-index: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 90vh;
+  box-sizing: border-box;
   text-align: center;
   padding: 96px 24px 72px;
   max-width: 860px;
@@ -479,7 +484,7 @@ textarea:focus-visible,
 }
 
 .hero-prompt-hint {
-  margin: 96px auto 0;
+  margin: 180px auto 0;
   font-size: 0.82rem;
   color: var(--text-secondary);
   white-space: nowrap;

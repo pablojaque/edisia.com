@@ -27,9 +27,9 @@
 }
 
 :root {
-  --bg: #fafafa;
-  --bg-alt: #f4f4f5;
-  --surface: #ffffff;
+  --bg: #f4f4f3;
+  --bg-alt: #ececeb;
+  --surface: #f9f9f8;
   --text: #111113;
   --text-secondary: #71717a;
   --accent: #4f46e5;
@@ -371,6 +371,20 @@ textarea:focus-visible,
   border: 1px solid var(--accent);
 }
 
+.button-sm {
+  padding: 9px 16px;
+  font-size: 0.85rem;
+}
+
+.hero-cta-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
 /* Hero */
 .hero {
   position: relative;
@@ -580,6 +594,93 @@ section.alt {
 .service-card p {
   margin: 0;
   color: var(--text-secondary);
+}
+
+/* Week pill */
+.week-pill {
+  display: inline-block;
+  background: var(--accent-soft);
+  color: var(--accent);
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-bottom: 16px;
+}
+
+/* Products grid */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.product-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.product-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--accent) 15%, transparent);
+}
+
+.product-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.product-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  flex-shrink: 0;
+}
+
+.product-tag {
+  background: var(--bg-alt);
+  color: var(--text-secondary);
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.product-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+}
+
+.product-signal {
+  margin: 0 0 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.product-card > p:not(.product-signal) {
+  margin: 0 0 20px;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  flex-grow: 1;
+}
+
+.product-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 /* About */

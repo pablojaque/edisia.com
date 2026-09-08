@@ -84,12 +84,12 @@ export default function ProductGrid({ lang, plan }) {
 
           {blockedProducts.map((product) => (
             <article className="product-card product-card-blocked" key={product.id}>
-              <div className="product-card-top">
-                <ProductIcon />
-                <span className="product-tag">{product.tag[lang]}</span>
-              </div>
-              <h3>{product.name[lang]}</h3>
               <div className="product-card-blur">
+                <div className="product-card-top">
+                  <ProductIcon />
+                  <span className="product-tag">{product.tag[lang]}</span>
+                </div>
+                <h3>{product.name[lang]}</h3>
                 <p className="product-signal">{product.signal[lang]}</p>
                 <p>{product.reason[lang]}</p>
                 <div className="product-actions">

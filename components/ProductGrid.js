@@ -12,9 +12,8 @@ const COPY = {
     disclaimerLinkLabel: "aviso de afiliación y proveedores externos",
     disclaimerHref: "/reembolsos",
     placeholderText: "Vuelve la semana que viene por más productos ganadores.",
-    lockedTitle: "Hay 5 productos más esta semana",
-    lockedText: "Hazte premium por 9€/mes y desbloquea los 8 productos ganadores completos cada semana.",
-    lockedCta: "Ver plan premium",
+    freeNote: "Los 3 primeros productos son gratis. Hazte premium por 9€/mes para ver los 8 completos cada semana.",
+    lockedCta: "Desbloquear con premium",
   },
   en: {
     heading: "This week's winning products",
@@ -26,9 +25,8 @@ const COPY = {
     disclaimerLinkLabel: "affiliate & external suppliers disclosure",
     disclaimerHref: "/en/refund",
     placeholderText: "Check back next week for more winning products.",
-    lockedTitle: "5 more products this week",
-    lockedText: "Go premium for €9/month and unlock all 8 full winning products every week.",
-    lockedCta: "See premium plan",
+    freeNote: "The first 3 products are free. Go premium for €9/month to see all 8 every week.",
+    lockedCta: "Unlock with premium",
   },
 };
 
@@ -46,7 +44,8 @@ function ProductIcon() {
 export default function ProductGrid({ lang, plan }) {
   const t = COPY[lang];
   const isPremium = plan === "premium";
-  const visibleProducts = isPremium ? products : products.slice(0, 3);
+  const unlockedProducts = isPremium ? products : products.slice(0, 3);
+  const blockedProducts = isPremium ? [] : products.slice(3);
   const aliexpressBase = "https://www.aliexpress.com/wholesale?SearchText=";
   const alibabaBase = "https://www.alibaba.com/trade/search?SearchText=";
 
@@ -57,9 +56,10 @@ export default function ProductGrid({ lang, plan }) {
           <span className="week-pill">{weekLabel[lang]}</span>
           <h2>{t.heading}</h2>
           <p>{t.sub}</p>
+          {!isPremium && <p className="products-free-note">{t.freeNote}</p>}
         </div>
         <div className="products-grid">
-          {visibleProducts.map((product) => {
+          {unlockedProducts.map((product) => {
             const terms = product.query.split(" ").join("+");
             return (
               <article className="product-card" key={product.id}>
@@ -82,23 +82,38 @@ export default function ProductGrid({ lang, plan }) {
             );
           })}
 
-          {isPremium ? (
+          {blockedProducts.map((product) => (
+            <article className="product-card product-card-blocked" key={product.id}>
+              <div className="product-card-top">
+                <ProductIcon />
+                <span className="product-tag">{product.tag[lang]}</span>
+              </div>
+              <h3>{product.name[lang]}</h3>
+              <div className="product-card-blur">
+                <p className="product-signal">{product.signal[lang]}</p>
+                <p>{product.reason[lang]}</p>
+                <div className="product-actions">
+                  <span className="button button-sm">{t.aliexpress}</span>
+                  <span className="button button-sm secondary">{t.alibaba}</span>
+                </div>
+              </div>
+              <div className="product-card-blocked-overlay">
+                <span className="product-card-blocked-lock" aria-hidden="true">
+                  🔒
+                </span>
+                <Link className="button button-sm" href="/precios">
+                  {t.lockedCta}
+                </Link>
+              </div>
+            </article>
+          ))}
+
+          {isPremium && (
             <article className="product-card product-card-placeholder">
               <span className="product-placeholder-icon" aria-hidden="true">
                 👀
               </span>
               <p>{t.placeholderText}</p>
-            </article>
-          ) : (
-            <article className="product-card product-card-locked">
-              <span className="product-card-locked-icon" aria-hidden="true">
-                🔒
-              </span>
-              <h3>{t.lockedTitle}</h3>
-              <p>{t.lockedText}</p>
-              <Link className="button button-sm" href="/precios">
-                {t.lockedCta}
-              </Link>
             </article>
           )}
         </div>

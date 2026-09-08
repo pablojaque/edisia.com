@@ -6,7 +6,7 @@ import { getSessionAndPlan } from "../../lib/getSessionAndPlan";
 export const metadata = { title: "Mi cuenta — Barmaja" };
 
 export default async function CuentaPage() {
-  const { user, plan } = await getSessionAndPlan();
+  const { user, plan, name } = await getSessionAndPlan();
 
   if (!user) {
     redirect("/login?next=/cuenta");
@@ -15,7 +15,7 @@ export default async function CuentaPage() {
   return (
     <SiteChrome lang="es" altHref="/cuenta">
       <section className="hero" style={{ minHeight: "auto", paddingBottom: 40 }}>
-        <h1>Mi cuenta</h1>
+        <h1>{name ? `¡Hola, ${name}!` : "Mi cuenta"}</h1>
         <p>Gestiona tu plan y tu suscripción.</p>
       </section>
       <section>
@@ -23,6 +23,12 @@ export default async function CuentaPage() {
           <div className="account-card">
             <span className={`plan-badge ${plan}`}>{plan === "premium" ? "Plan premium" : "Plan gratuito"}</span>
             <dl>
+              {name && (
+                <>
+                  <dt>Nombre</dt>
+                  <dd>{name}</dd>
+                </>
+              )}
               <dt>Correo electrónico</dt>
               <dd>{user.email}</dd>
               <dt>Plan actual</dt>

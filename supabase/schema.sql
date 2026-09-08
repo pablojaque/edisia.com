@@ -3,11 +3,14 @@
 create table if not exists public.profiles (
   id uuid primary key references auth.users(id) on delete cascade,
   email text,
+  name text,
   plan text not null default 'free' check (plan in ('free', 'premium')),
   stripe_customer_id text,
   stripe_subscription_id text,
   updated_at timestamptz not null default now()
 );
+
+alter table public.profiles add column if not exists name text;
 
 alter table public.profiles enable row level security;
 
@@ -24,8 +27,8 @@ language plpgsql
 security definer set search_path = public
 as $$
 begin
-  insert into public.profiles (id, email)
-  values (new.id, new.email);
+  insert into public.profiles (id, email, name)
+  values (new.id, new.email, new.raw_user_meta_data->>'name');
   return new;
 end;
 $$;

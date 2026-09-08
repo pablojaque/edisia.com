@@ -5,6 +5,7 @@ import Link from "next/link";
 import { createClient } from "../lib/supabase/client";
 
 export default function RegisterForm() {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [status, setStatus] = useState("idle"); // idle | sending | needs-confirmation | done | error
@@ -18,7 +19,10 @@ export default function RegisterForm() {
     const { data, error: signUpError } = await supabase.auth.signUp({
       email,
       password,
-      options: { emailRedirectTo: `${window.location.origin}/auth/callback` },
+      options: {
+        data: { name: name.trim() },
+        emailRedirectTo: `${window.location.origin}/auth/callback`,
+      },
     });
     if (signUpError) {
       setStatus("error");
@@ -51,6 +55,10 @@ export default function RegisterForm() {
     <section>
       <div className="section-inner">
         <form className="auth-form" onSubmit={handleSubmit}>
+          <div className="form-field">
+            <label htmlFor="name">Nombre</label>
+            <input type="text" id="name" autoComplete="name" required value={name} onChange={(e) => setName(e.target.value)} />
+          </div>
           <div className="form-field">
             <label htmlFor="email">Correo electrónico</label>
             <input type="email" id="email" autoComplete="email" required value={email} onChange={(e) => setEmail(e.target.value)} />

@@ -18,6 +18,8 @@ const COPY = {
     ],
     account: "Mi cuenta",
     login: "Iniciar sesión",
+    register: "Registrarse",
+    greeting: (name) => `¡Hola, ${name}!`,
     langLabel: "Seleccionar idioma",
   },
   en: {
@@ -34,11 +36,13 @@ const COPY = {
     ],
     account: "My account",
     login: "Log in",
+    register: "Sign up",
+    greeting: (name) => `Hi, ${name}!`,
     langLabel: "Select language",
   },
 };
 
-export default function HeaderSidebar({ lang, user, altHref }) {
+export default function HeaderSidebar({ lang, user, name, altHref }) {
   const t = COPY[lang];
   const [open, setOpen] = useState(false);
   const [theme, setTheme] = useState(null);
@@ -109,9 +113,20 @@ export default function HeaderSidebar({ lang, user, altHref }) {
                 EN
               </Link>
             </div>
-            <Link href="/cuenta" className="account-link">
-              {user ? t.account : t.login}
-            </Link>
+            {user ? (
+              <Link href="/cuenta" className="account-link account-greeting">
+                {t.greeting(name || user.email)}
+              </Link>
+            ) : (
+              <div className="account-links">
+                <Link href="/cuenta" className="account-link">
+                  {t.login}
+                </Link>
+                <Link href="/registro" className="button button-sm">
+                  {t.register}
+                </Link>
+              </div>
+            )}
             <button
               type="button"
               className="icon-button"

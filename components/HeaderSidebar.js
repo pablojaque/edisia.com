@@ -12,6 +12,7 @@ const COPY = {
     themeToggle: "Cambiar entre modo claro y oscuro",
     nav: [
       { href: "/#productos", label: "Productos" },
+      { href: "/precios", label: "Planes" },
       { href: "/como-trabajamos", label: "Cómo funciona" },
       { href: "/#sobre-nosotros", label: "Sobre nosotros" },
       { href: "/#contacto", label: "Contacto" },
@@ -30,6 +31,7 @@ const COPY = {
     themeToggle: "Switch between light and dark mode",
     nav: [
       { href: "/en#products", label: "Products" },
+      { href: "/precios", label: "Plans" },
       { href: "/en/how-we-work", label: "How it works" },
       { href: "/en#about", label: "About us" },
       { href: "/en#contact", label: "Contact" },

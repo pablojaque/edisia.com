@@ -4,9 +4,9 @@ import { useEffect } from "react";
 
 export default function ScrollReveal() {
   useEffect(() => {
-    const revealTargets = document.querySelectorAll(
-      ".section-heading, .service-card, .product-card, .cta-band, .about"
-    );
+    const revealTargets = Array.from(
+      document.querySelectorAll(".section-heading, .service-card, .product-card, .cta-band, .about")
+    ).filter((el) => !el.closest("#como-funciona, #how-it-works"));
     if (!revealTargets.length) return;
 
     const reduceMotion =

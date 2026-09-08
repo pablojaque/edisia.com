@@ -8,9 +8,6 @@ export default async function SiteChrome({ lang, altHref, children }) {
 
   return (
     <>
-      <a className="skip-link" href="#main">
-        {lang === "es" ? "Saltar al contenido principal" : "Skip to main content"}
-      </a>
       <HeaderSidebar lang={lang} user={user} name={name} altHref={altHref} />
       <main id="main">{children}</main>
       <Footer lang={lang} />

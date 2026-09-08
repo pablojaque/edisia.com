@@ -108,14 +108,12 @@ export default function ProductGrid({ lang, plan }) {
             </article>
           ))}
 
-          {isPremium && (
-            <article className="product-card product-card-placeholder">
-              <span className="product-placeholder-icon" aria-hidden="true">
-                👀
-              </span>
-              <p>{t.placeholderText}</p>
-            </article>
-          )}
+          <article className="product-card product-card-placeholder">
+            <span className="product-placeholder-icon" aria-hidden="true">
+              👀
+            </span>
+            <p>{t.placeholderText}</p>
+          </article>
         </div>
         <div className="legal-disclaimer">
           <p>

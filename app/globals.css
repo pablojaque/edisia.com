@@ -116,23 +116,6 @@ h1, h2, h3 {
   letter-spacing: -0.02em;
 }
 
-.skip-link {
-  position: absolute;
-  left: -9999px;
-  top: 0;
-  background: var(--accent);
-  color: var(--accent-contrast);
-  padding: 12px 20px;
-  border-radius: 0 0 8px 0;
-  z-index: 1000;
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.skip-link:focus {
-  left: 0;
-}
-
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,

@@ -13,6 +13,14 @@
 @font-face {
   font-family: "Poppins";
   font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/Poppins-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
   font-weight: 600;
   font-display: swap;
   src: url("/fonts/Poppins-SemiBold.woff2") format("woff2");
@@ -209,7 +217,7 @@ textarea:focus-visible,
   text-decoration: none;
   color: var(--text);
   font-family: var(--font-heading);
-  font-weight: 700;
+  font-weight: 400;
   font-size: 1.25rem;
 }
 

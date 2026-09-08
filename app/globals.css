@@ -1,5 +1,5 @@
 /* Barmaja — estilos base
-   Tipografías Inter (texto) y Poppins (títulos), auto-alojadas en /fonts —
+   Tipografías Inter (texto) y Poppins (títulos), auto-alojadas en /public/fonts —
    sin peticiones a servicios externos en tiempo de ejecución. */
 
 @font-face {
@@ -7,7 +7,7 @@
   font-style: normal;
   font-weight: 400 700;
   font-display: swap;
-  src: url("fonts/Inter-Variable.woff2") format("woff2");
+  src: url("/fonts/Inter-Variable.woff2") format("woff2");
 }
 
 @font-face {
@@ -15,7 +15,7 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url("fonts/Poppins-SemiBold.woff2") format("woff2");
+  src: url("/fonts/Poppins-SemiBold.woff2") format("woff2");
 }
 
 @font-face {
@@ -23,7 +23,7 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url("fonts/Poppins-Bold.woff2") format("woff2");
+  src: url("/fonts/Poppins-Bold.woff2") format("woff2");
 }
 
 :root {
@@ -230,37 +230,6 @@ textarea:focus-visible,
   font-size: 1.25rem;
 }
 
-.logo-mark {
-  height: 30px;
-  width: auto;
-  display: block;
-}
-
-.logo-mark-dark {
-  display: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .logo-mark-light {
-    display: none;
-  }
-  :root:not([data-theme="light"]) .logo-mark-dark {
-    display: block;
-  }
-}
-
-:root[data-theme="dark"] .logo-mark-light {
-  display: none;
-}
-
-:root[data-theme="dark"] .logo-mark-dark {
-  display: block;
-}
-
-.logo svg {
-  border-radius: 6px;
-}
-
 .header-actions {
   display: flex;
   align-items: center;
@@ -290,6 +259,27 @@ textarea:focus-visible,
 .icon-button svg {
   width: 18px;
   height: 18px;
+}
+
+.account-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 16px;
+  height: 38px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.account-link:hover {
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 /* Sidebar nav */
@@ -410,6 +400,11 @@ body.sidebar-open {
 
 .button:hover {
   background: var(--accent-hover);
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .button.secondary:hover {
@@ -753,6 +748,142 @@ section.alt {
   margin: 0;
   font-weight: 600;
   color: var(--text);
+}
+
+/* Locked product card (free plan) */
+.product-card-locked {
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+  padding: 40px 24px;
+  background: var(--bg-alt);
+  overflow: hidden;
+}
+
+.product-card-locked::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--border) 60%, transparent) 0 10px,
+    transparent 10px 20px
+  );
+  opacity: 0.4;
+}
+
+.product-card-locked > * {
+  position: relative;
+}
+
+.product-card-locked-icon {
+  font-size: 1.8rem;
+}
+
+.product-card-locked p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Pricing */
+.pricing-card {
+  max-width: 420px;
+  margin: 0 auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 40px 32px;
+  text-align: center;
+}
+
+.pricing-price {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 12px 0;
+}
+
+.pricing-price span {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.pricing-features {
+  list-style: none;
+  margin: 24px 0 32px;
+  padding: 0;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pricing-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--text-secondary);
+}
+
+.plan-badge {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.plan-badge.free {
+  background: var(--bg-alt);
+  color: var(--text-secondary);
+}
+
+.plan-badge.premium {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.account-card {
+  max-width: 480px;
+  margin: 0 auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px;
+}
+
+.account-card dl {
+  margin: 20px 0;
+}
+
+.account-card dt {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 16px;
+}
+
+.account-card dd {
+  margin: 4px 0 0;
+  font-weight: 600;
+}
+
+.auth-form {
+  max-width: 420px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.auth-switch {
+  text-align: center;
+  margin-top: 20px;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
 }
 
 /* About */

@@ -40,15 +40,15 @@
   --surface: #f9f9f8;
   --text: #111113;
   --text-secondary: #71717a;
-  --accent: #4f46e5;
-  --accent-hover: #4338ca;
+  --accent: #4338ca;
+  --accent-hover: #372da6;
   --accent-soft: #eef2ff;
   --accent-contrast: #ffffff;
   --border: #e4e4e7;
-  --focus: #4f46e5;
+  --focus: #4338ca;
   --danger: #b3261e;
-  --glow-a: rgba(79, 70, 229, 0.12);
-  --glow-b: rgba(236, 72, 153, 0.09);
+  --glow-a: rgba(67, 56, 202, 0.12);
+  --glow-b: rgba(59, 130, 246, 0.08);
   --radius: 16px;
   --max-width: 1100px;
   --font: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
@@ -69,8 +69,8 @@
     --accent-contrast: #0b0b10;
     --border: #27272a;
     --focus: #818cf8;
-    --glow-a: rgba(129, 140, 248, 0.24);
-    --glow-b: rgba(244, 114, 182, 0.18);
+    --glow-a: rgba(129, 140, 248, 0.22);
+    --glow-b: rgba(96, 165, 250, 0.14);
   }
 }
 
@@ -86,8 +86,8 @@
   --accent-contrast: #0b0b10;
   --border: #27272a;
   --focus: #818cf8;
-  --glow-a: rgba(129, 140, 248, 0.24);
-  --glow-b: rgba(244, 114, 182, 0.18);
+  --glow-a: rgba(129, 140, 248, 0.22);
+  --glow-b: rgba(96, 165, 250, 0.14);
 }
 
 * {

@@ -737,6 +737,26 @@ section.alt {
   flex-wrap: wrap;
 }
 
+.product-card-placeholder {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+  padding: 48px 28px;
+  border-style: dashed;
+  color: var(--text-secondary);
+}
+
+.product-placeholder-icon {
+  font-size: 2rem;
+}
+
+.product-card-placeholder p {
+  margin: 0;
+  font-weight: 600;
+  color: var(--text);
+}
+
 /* About */
 .about {
   max-width: 720px;

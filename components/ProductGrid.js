@@ -30,17 +30,6 @@ const COPY = {
   },
 };
 
-function ProductIcon() {
-  return (
-    <span className="product-icon" aria-hidden="true">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
-        <path d="M3 17l6-6 4 4 8-8" stroke="#4f46e5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M15 7h6v6" stroke="#4f46e5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    </span>
-  );
-}
-
 export default function ProductGrid({ lang, plan }) {
   const t = COPY[lang];
   const isPremium = plan === "premium";
@@ -61,22 +50,27 @@ export default function ProductGrid({ lang, plan }) {
         <div className="products-grid">
           {unlockedProducts.map((product) => {
             const terms = product.query.split(" ").join("+");
+            const aliexpressHref = `${aliexpressBase}${terms}`;
             return (
               <article className="product-card" key={product.id}>
-                <div className="product-card-top">
-                  <ProductIcon />
+                <a className="product-card-media" href={aliexpressHref} target="_blank" rel="noopener">
+                  <img src={product.image} alt={product.name[lang]} loading="lazy" />
                   <span className="product-tag">{product.tag[lang]}</span>
-                </div>
-                <h3>{product.name[lang]}</h3>
-                <p className="product-signal">{product.signal[lang]}</p>
-                <p>{product.reason[lang]}</p>
-                <div className="product-actions">
-                  <a className="button button-sm" href={`${aliexpressBase}${terms}`} target="_blank" rel="noopener">
-                    {t.aliexpress}
+                </a>
+                <div className="product-card-body">
+                  <a className="product-card-title-link" href={aliexpressHref} target="_blank" rel="noopener">
+                    <h3>{product.name[lang]}</h3>
                   </a>
-                  <a className="button button-sm secondary" href={`${alibabaBase}${terms}`} target="_blank" rel="noopener">
-                    {t.alibaba}
-                  </a>
+                  <p className="product-signal">{product.signal[lang]}</p>
+                  <p>{product.reason[lang]}</p>
+                  <div className="product-actions">
+                    <a className="button button-sm" href={aliexpressHref} target="_blank" rel="noopener">
+                      {t.aliexpress}
+                    </a>
+                    <a className="button button-sm secondary" href={`${alibabaBase}${terms}`} target="_blank" rel="noopener">
+                      {t.alibaba}
+                    </a>
+                  </div>
                 </div>
               </article>
             );
@@ -85,16 +79,18 @@ export default function ProductGrid({ lang, plan }) {
           {blockedProducts.map((product) => (
             <article className="product-card product-card-blocked" key={product.id}>
               <div className="product-card-blur">
-                <div className="product-card-top">
-                  <ProductIcon />
+                <div className="product-card-media">
+                  <img src={product.image} alt={product.name[lang]} loading="lazy" />
                   <span className="product-tag">{product.tag[lang]}</span>
                 </div>
-                <h3>{product.name[lang]}</h3>
-                <p className="product-signal">{product.signal[lang]}</p>
-                <p>{product.reason[lang]}</p>
-                <div className="product-actions">
-                  <span className="button button-sm">{t.aliexpress}</span>
-                  <span className="button button-sm secondary">{t.alibaba}</span>
+                <div className="product-card-body">
+                  <h3>{product.name[lang]}</h3>
+                  <p className="product-signal">{product.signal[lang]}</p>
+                  <p>{product.reason[lang]}</p>
+                  <div className="product-actions">
+                    <span className="button button-sm">{t.aliexpress}</span>
+                    <span className="button button-sm secondary">{t.alibaba}</span>
+                  </div>
                 </div>
               </div>
               <div className="product-card-blocked-overlay">

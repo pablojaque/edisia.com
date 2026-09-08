@@ -52,7 +52,47 @@ export default function RefundPage() {
           change.
         </p>
 
-        <h2>6. Contact</h2>
+        <h2>6. Image credits</h2>
+        <p>
+          The product photos in the weekly section are generic reference images (not real supplier photos), sourced
+          from Wikimedia Commons under Creative Commons licenses:
+        </p>
+        <ul>
+          <li>
+            Lamp: &quot;Dekala Arches™ Smart Lamp&quot; by LannyWay (
+            <a href="https://commons.wikimedia.org/wiki/File:Dekala_Arches%E2%84%A2_Smart_Lamp.jpg">CC BY-SA 4.0</a>)
+          </li>
+          <li>
+            Mini projector: &quot;AAXATech P1 Pico Projector 2009&quot; by aaxatech (
+            <a href="https://commons.wikimedia.org/wiki/File:AAXATech_P1_Pico_Projector_2009.jpg">CC BY 2.0</a>)
+          </li>
+          <li>
+            Spice organizer: &quot;Herbs and Spices storage in the kitchen&quot; by Stonesynergyimages (
+            <a href="https://commons.wikimedia.org/wiki/File:Herbs_and_Spices_storage_in_the_kitchen.jpg">CC BY-SA 4.0</a>)
+          </li>
+          <li>
+            Sunglasses: &quot;Pair of sunglasses lens down&quot; by Jtasking (
+            <a href="https://commons.wikimedia.org/wiki/File:Pair_of_sunglasses_lens_down.jpg">CC BY-SA 4.0</a>)
+          </li>
+          <li>
+            Thermal container: steel flasks photo by Ewloskalw (
+            <a href="https://commons.wikimedia.org/wiki/File:HK_CWB_Saint_Mary%27s_Church_Bday_%E6%9A%96%E6%B0%B4%E5%A3%BA_hot_drinking_water_Stainless_steel_thermos_bottles_Vacuum_flasks_May-2013.JPG">CC BY-SA 3.0</a>)
+          </li>
+          <li>
+            Power bank: &quot;Power bank&quot; by Ilya Plekhanov (
+            <a href="https://commons.wikimedia.org/wiki/File:Power_bank.JPG">CC BY-SA 3.0</a>)
+          </li>
+          <li>
+            Eye cream stick: &quot;ChapStick lip balm&quot; by Jorge Barrios Riquelme (
+            <a href="https://commons.wikimedia.org/wiki/File:ChapStick_lip_balm.jpg">CC BY-SA 4.0</a>)
+          </li>
+          <li>
+            Creator mount: &quot;Smartphone tripod braces&quot; by Draco flavus (
+            <a href="https://commons.wikimedia.org/wiki/File:Smartphone_tripod_braces.jpg">CC BY-SA 3.0</a>)
+          </li>
+        </ul>
+
+        <h2>7. Contact</h2>
         <p>
           Any questions about this disclosure, write to <a href="mailto:pablojaquevfx@gmail.com">pablojaquevfx@gmail.com</a>.
         </p>

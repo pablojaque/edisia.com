@@ -5,6 +5,7 @@ module.exports.weekLabel = { es: "Semana del 8 de septiembre de 2026", en: "Week
 module.exports.products = [
   {
     id: "sunset-lamp",
+    image: "/images/products/sunset-lamp.jpg",
     tag: { es: "Decoración", en: "Home decor" },
     name: { es: "Lámpara de atardecer (Sunset Lamp)", en: "Sunset projection lamp" },
     signal: { es: "🔥 Tendencia en alza", en: "🔥 Rising trend" },
@@ -16,6 +17,7 @@ module.exports.products = [
   },
   {
     id: "mini-projector",
+    image: "/images/products/mini-projector.jpg",
     tag: { es: "Entretenimiento", en: "Entertainment" },
     name: { es: "Mini proyector portátil", en: "Mini portable projector" },
     signal: { es: "📈 Tracción creciente", en: "📈 Growing traction" },
@@ -27,6 +29,7 @@ module.exports.products = [
   },
   {
     id: "spice-rack",
+    image: "/images/products/spice-rack.jpg",
     tag: { es: "Cocina y hogar", en: "Kitchen & home" },
     name: { es: "Organizador giratorio de especias", en: "Rotating spice rack organizer" },
     signal: { es: "🆕 Nuevo esta semana", en: "🆕 New this week" },
@@ -38,6 +41,7 @@ module.exports.products = [
   },
   {
     id: "retro-sunglasses",
+    image: "/images/products/retro-sunglasses.jpg",
     tag: { es: "Moda y lifestyle", en: "Fashion & lifestyle" },
     name: { es: "Gafas retro estilo OTG", en: "Retro OTG sunglasses" },
     signal: { es: "🔥 Tendencia en alza", en: "🔥 Rising trend" },
@@ -49,6 +53,7 @@ module.exports.products = [
   },
   {
     id: "thermal-container",
+    image: "/images/products/thermal-container.jpg",
     tag: { es: "Cocina y tech", en: "Kitchen tech" },
     name: { es: "Contenedor térmico recargable con pantalla LED", en: "Rechargeable thermal food container with LED display" },
     signal: { es: "🛒 Ventas confirmadas en TikTok Shop", en: "🛒 Confirmed sales on TikTok Shop" },
@@ -60,6 +65,7 @@ module.exports.products = [
   },
   {
     id: "power-bank",
+    image: "/images/products/power-bank.jpg",
     tag: { es: "Gadgets y viaje", en: "Gadgets & travel" },
     name: { es: "Power bank en formato cápsula", en: "Capsule power bank" },
     signal: { es: "📈 Tracción creciente", en: "📈 Growing traction" },
@@ -71,6 +77,7 @@ module.exports.products = [
   },
   {
     id: "eye-cream-stick",
+    image: "/images/products/eye-cream-stick.jpg",
     tag: { es: "Belleza", en: "Beauty" },
     name: { es: "Stick de crema de ojos multi-balm", en: "Calcium multi-balm eye cream stick" },
     signal: { es: "🛒 Más de 240.000 unidades vendidas", en: "🛒 240,000+ units sold" },
@@ -82,6 +89,7 @@ module.exports.products = [
   },
   {
     id: "creator-mount",
+    image: "/images/products/creator-mount.jpg",
     tag: { es: "Creación de contenido", en: "Content creation" },
     name: { es: "Soporte de encuadre para creadores", en: "Content creator framing mount" },
     signal: { es: "🆕 Nuevo esta semana", en: "🆕 New this week" },

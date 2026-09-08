@@ -55,7 +55,47 @@ export default function ReembolsosPage() {
           página con la fecha del cambio.
         </p>
 
-        <h2>6. Contacto</h2>
+        <h2>6. Créditos de imágenes</h2>
+        <p>
+          Las fotos de producto de la sección semanal son imágenes genéricas de referencia (no fotos reales del
+          proveedor), obtenidas de Wikimedia Commons bajo licencia Creative Commons:
+        </p>
+        <ul>
+          <li>
+            Lámpara: &quot;Dekala Arches™ Smart Lamp&quot; de LannyWay (
+            <a href="https://commons.wikimedia.org/wiki/File:Dekala_Arches%E2%84%A2_Smart_Lamp.jpg">CC BY-SA 4.0</a>)
+          </li>
+          <li>
+            Mini proyector: &quot;AAXATech P1 Pico Projector 2009&quot; de aaxatech (
+            <a href="https://commons.wikimedia.org/wiki/File:AAXATech_P1_Pico_Projector_2009.jpg">CC BY 2.0</a>)
+          </li>
+          <li>
+            Organizador de especias: &quot;Herbs and Spices storage in the kitchen&quot; de Stonesynergyimages (
+            <a href="https://commons.wikimedia.org/wiki/File:Herbs_and_Spices_storage_in_the_kitchen.jpg">CC BY-SA 4.0</a>)
+          </li>
+          <li>
+            Gafas: &quot;Pair of sunglasses lens down&quot; de Jtasking (
+            <a href="https://commons.wikimedia.org/wiki/File:Pair_of_sunglasses_lens_down.jpg">CC BY-SA 4.0</a>)
+          </li>
+          <li>
+            Contenedor térmico: foto de termos de acero de Ewloskalw (
+            <a href="https://commons.wikimedia.org/wiki/File:HK_CWB_Saint_Mary%27s_Church_Bday_%E6%9A%96%E6%B0%B4%E5%A3%BA_hot_drinking_water_Stainless_steel_thermos_bottles_Vacuum_flasks_May-2013.JPG">CC BY-SA 3.0</a>)
+          </li>
+          <li>
+            Power bank: &quot;Power bank&quot; de Ilya Plekhanov (
+            <a href="https://commons.wikimedia.org/wiki/File:Power_bank.JPG">CC BY-SA 3.0</a>)
+          </li>
+          <li>
+            Stick de crema: &quot;ChapStick lip balm&quot; de Jorge Barrios Riquelme (
+            <a href="https://commons.wikimedia.org/wiki/File:ChapStick_lip_balm.jpg">CC BY-SA 4.0</a>)
+          </li>
+          <li>
+            Soporte para creadores: &quot;Smartphone tripod braces&quot; de Draco flavus (
+            <a href="https://commons.wikimedia.org/wiki/File:Smartphone_tripod_braces.jpg">CC BY-SA 3.0</a>)
+          </li>
+        </ul>
+
+        <h2>7. Contacto</h2>
         <p>
           Cualquier duda sobre este aviso, escríbenos a <a href="mailto:pablojaquevfx@gmail.com">pablojaquevfx@gmail.com</a>.
         </p>

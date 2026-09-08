@@ -21,37 +21,51 @@
 
   <header class="site-header-bar">
     <div class="site-header">
-      <a class="logo" href="index.html" aria-label="Barmaja — página de inicio">
-        <img class="logo-mark logo-mark-light" src="assets/logo-black.png" alt="Barmaja" />
-        <img class="logo-mark logo-mark-dark" src="assets/logo-white.png" alt="Barmaja" />
-      </a>
-      <div class="nav-actions">
-        <nav class="main-nav" aria-label="Principal">
-          <ul>
-            <li><a href="#productos">Productos</a></li>
-            <li><a href="como-trabajamos.html">Cómo funciona</a></li>
-            <li><a href="#sobre-nosotros">Sobre nosotros</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-          </ul>
-        </nav>
-        <div class="header-actions">
-          <div class="lang-switch" aria-label="Seleccionar idioma">
-            <a href="index.html" aria-current="true" lang="es" hreflang="es">ES</a>
-            <a href="en/index.html" lang="en" hreflang="en">EN</a>
-          </div>
-          <button type="button" id="theme-toggle" class="icon-button" aria-pressed="false" aria-label="Cambiar entre modo claro y oscuro">
-            <svg id="icon-sun" hidden viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-              <circle cx="12" cy="12" r="4" />
-              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
-            </svg>
-            <svg id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" />
-            </svg>
-          </button>
+      <div class="header-left">
+        <button type="button" id="sidebar-toggle" class="icon-button" aria-expanded="false" aria-controls="sidebar" aria-label="Abrir menú">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+            <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </button>
+        <a class="logo" href="index.html" aria-label="Barmaja — página de inicio">Barmaja</a>
+      </div>
+      <div class="header-actions">
+        <div class="lang-switch" aria-label="Seleccionar idioma">
+          <a href="index.html" aria-current="true" lang="es" hreflang="es">ES</a>
+          <a href="en/index.html" lang="en" hreflang="en">EN</a>
         </div>
+        <button type="button" id="theme-toggle" class="icon-button" aria-pressed="false" aria-label="Cambiar entre modo claro y oscuro">
+          <svg id="icon-sun" hidden viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+          </svg>
+          <svg id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" />
+          </svg>
+        </button>
       </div>
     </div>
   </header>
+
+  <div id="sidebar-overlay" class="sidebar-overlay" hidden></div>
+  <aside id="sidebar" class="sidebar" aria-hidden="true">
+    <div class="sidebar-header">
+      <span class="sidebar-title">Menú</span>
+      <button type="button" id="sidebar-close" class="modal-close" aria-label="Cerrar menú">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+          <path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </button>
+    </div>
+    <nav class="sidebar-nav" aria-label="Principal">
+      <ul>
+        <li><a href="#productos">Productos</a></li>
+        <li><a href="como-trabajamos.html">Cómo funciona</a></li>
+        <li><a href="#sobre-nosotros">Sobre nosotros</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </aside>
 
   <main id="main">
     <section class="hero">

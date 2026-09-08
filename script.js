@@ -90,6 +90,71 @@
     });
   }
 
+  var sidebarToggle = document.getElementById("sidebar-toggle");
+  var sidebar = document.getElementById("sidebar");
+  var sidebarOverlay = document.getElementById("sidebar-overlay");
+  var sidebarClose = document.getElementById("sidebar-close");
+
+  function openSidebar() {
+    if (!sidebar) {
+      return;
+    }
+    sidebar.classList.add("is-open");
+    sidebar.setAttribute("aria-hidden", "false");
+    if (sidebarOverlay) {
+      sidebarOverlay.hidden = false;
+    }
+    if (sidebarToggle) {
+      sidebarToggle.setAttribute("aria-expanded", "true");
+    }
+    document.body.classList.add("sidebar-open");
+  }
+
+  function closeSidebar() {
+    if (!sidebar) {
+      return;
+    }
+    sidebar.classList.remove("is-open");
+    sidebar.setAttribute("aria-hidden", "true");
+    if (sidebarOverlay) {
+      sidebarOverlay.hidden = true;
+    }
+    if (sidebarToggle) {
+      sidebarToggle.setAttribute("aria-expanded", "false");
+    }
+    document.body.classList.remove("sidebar-open");
+  }
+
+  if (sidebarToggle && sidebar) {
+    sidebarToggle.addEventListener("click", function () {
+      if (sidebar.classList.contains("is-open")) {
+        closeSidebar();
+      } else {
+        openSidebar();
+      }
+    });
+  }
+
+  if (sidebarClose) {
+    sidebarClose.addEventListener("click", closeSidebar);
+  }
+
+  if (sidebarOverlay) {
+    sidebarOverlay.addEventListener("click", closeSidebar);
+  }
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && sidebar && sidebar.classList.contains("is-open")) {
+      closeSidebar();
+    }
+  });
+
+  if (sidebar) {
+    Array.prototype.forEach.call(sidebar.querySelectorAll("a"), function (link) {
+      link.addEventListener("click", closeSidebar);
+    });
+  }
+
   var heroPrompt = document.getElementById("hero-prompt");
   var modalOverlay = document.getElementById("contact-modal");
   var modalForm = document.getElementById("modal-form");

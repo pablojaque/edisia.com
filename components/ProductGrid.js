@@ -55,22 +55,22 @@ export default function ProductGrid({ lang, plan }) {
               <article className="product-card" key={product.id}>
                 <a className="product-card-media" href={aliexpressHref} target="_blank" rel="noopener">
                   <img src={product.image} alt={product.name[lang]} loading="lazy" />
-                  <span className="product-tag">{product.tag[lang]}</span>
                 </a>
-                <div className="product-card-body">
-                  <a className="product-card-title-link" href={aliexpressHref} target="_blank" rel="noopener">
-                    <h3>{product.name[lang]}</h3>
+                <div className="product-card-top">
+                  <span className="product-tag">{product.tag[lang]}</span>
+                </div>
+                <a className="product-card-title-link" href={aliexpressHref} target="_blank" rel="noopener">
+                  <h3>{product.name[lang]}</h3>
+                </a>
+                <p className="product-signal">{product.signal[lang]}</p>
+                <p>{product.reason[lang]}</p>
+                <div className="product-actions">
+                  <a className="button button-sm" href={aliexpressHref} target="_blank" rel="noopener">
+                    {t.aliexpress}
                   </a>
-                  <p className="product-signal">{product.signal[lang]}</p>
-                  <p>{product.reason[lang]}</p>
-                  <div className="product-actions">
-                    <a className="button button-sm" href={aliexpressHref} target="_blank" rel="noopener">
-                      {t.aliexpress}
-                    </a>
-                    <a className="button button-sm secondary" href={`${alibabaBase}${terms}`} target="_blank" rel="noopener">
-                      {t.alibaba}
-                    </a>
-                  </div>
+                  <a className="button button-sm secondary" href={`${alibabaBase}${terms}`} target="_blank" rel="noopener">
+                    {t.alibaba}
+                  </a>
                 </div>
               </article>
             );
@@ -81,16 +81,16 @@ export default function ProductGrid({ lang, plan }) {
               <div className="product-card-blur">
                 <div className="product-card-media">
                   <img src={product.image} alt={product.name[lang]} loading="lazy" />
+                </div>
+                <div className="product-card-top">
                   <span className="product-tag">{product.tag[lang]}</span>
                 </div>
-                <div className="product-card-body">
-                  <h3>{product.name[lang]}</h3>
-                  <p className="product-signal">{product.signal[lang]}</p>
-                  <p>{product.reason[lang]}</p>
-                  <div className="product-actions">
-                    <span className="button button-sm">{t.aliexpress}</span>
-                    <span className="button button-sm secondary">{t.alibaba}</span>
-                  </div>
+                <h3>{product.name[lang]}</h3>
+                <p className="product-signal">{product.signal[lang]}</p>
+                <p>{product.reason[lang]}</p>
+                <div className="product-actions">
+                  <span className="button button-sm">{t.aliexpress}</span>
+                  <span className="button button-sm secondary">{t.alibaba}</span>
                 </div>
               </div>
               <div className="product-card-blocked-overlay">

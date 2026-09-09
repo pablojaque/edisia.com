@@ -37,21 +37,3 @@ drop trigger if exists on_auth_user_created on auth.users;
 create trigger on_auth_user_created
   after insert on auth.users
   for each row execute procedure public.handle_new_user();
-
--- Registro de análisis de tiendas (para el límite de 2 al día en el plan
--- gratis). Los inserts los hace el servidor con la clave secreta.
-create table if not exists public.store_analyses (
-  id uuid primary key default gen_random_uuid(),
-  user_id uuid not null references auth.users(id) on delete cascade,
-  url text not null,
-  created_at timestamptz not null default now()
-);
-
-alter table public.store_analyses enable row level security;
-
-create policy "Users can view their own store analyses"
-  on public.store_analyses for select
-  using (auth.uid() = user_id);
-
-create index if not exists store_analyses_user_created_idx
-  on public.store_analyses (user_id, created_at desc);

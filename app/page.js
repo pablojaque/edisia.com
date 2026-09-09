@@ -2,9 +2,7 @@ import SiteChrome from "../components/SiteChrome";
 import HeroWithModal from "../components/HeroWithModal";
 import ProductGrid from "../components/ProductGrid";
 import ContactForm from "../components/ContactForm";
-import StoreAnalyzer from "../components/StoreAnalyzer";
 import { getSessionAndPlan } from "../lib/getSessionAndPlan";
-import { getRemainingAnalysesToday } from "../lib/getAnalyzerQuota";
 
 export const metadata = {
   title: "Barmaja — Productos ganadores de TikTok para ecommerce, cada semana",
@@ -13,24 +11,11 @@ export const metadata = {
 };
 
 export default async function HomePage() {
-  const { user, plan } = await getSessionAndPlan();
-  const isPremium = plan === "premium";
-  const remainingToday = user && !isPremium ? await getRemainingAnalysesToday(user.id) : 2;
+  const { plan } = await getSessionAndPlan();
 
   return (
     <SiteChrome lang="es" altHref="/en">
       <HeroWithModal lang="es" productsHref="#productos" />
-
-      <section id="analizador" className="analyzer-hero-section">
-        <div className="section-inner">
-          <div className="section-heading">
-            <span className="week-pill">Herramienta gratis</span>
-            <h2>Analiza cualquier tienda Shopify</h2>
-            <p>Pega el link de una tienda de la competencia y te sacamos su catálogo, precios, apps y más al instante.</p>
-          </div>
-          <StoreAnalyzer isPremium={isPremium} remainingToday={remainingToday} isLoggedIn={!!user} compact />
-        </div>
-      </section>
 
       <section id="como-funciona" className="alt">
         <div className="section-inner">

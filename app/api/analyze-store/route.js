@@ -1,8 +1,7 @@
 import { NextResponse } from "next/server";
 import { createClient, createAdminClient } from "../../../lib/supabase/server";
 import { analyzeStore } from "../../../lib/storeAnalyzer";
-
-const FREE_DAILY_LIMIT = 2;
+import { getRemainingAnalysesToday } from "../../../lib/getAnalyzerQuota";
 
 export async function POST(request) {
   const supabase = await createClient();
@@ -24,15 +23,8 @@ export async function POST(request) {
   const isPremium = profile?.plan === "premium";
 
   if (!isPremium) {
-    const startOfDay = new Date();
-    startOfDay.setUTCHours(0, 0, 0, 0);
-    const { count } = await admin
-      .from("store_analyses")
-      .select("id", { count: "exact", head: true })
-      .eq("user_id", user.id)
-      .gte("created_at", startOfDay.toISOString());
-
-    if ((count || 0) >= FREE_DAILY_LIMIT) {
+    const remaining = await getRemainingAnalysesToday(user.id);
+    if (remaining <= 0) {
       return NextResponse.json({ error: "limit_reached" }, { status: 403 });
     }
   }
